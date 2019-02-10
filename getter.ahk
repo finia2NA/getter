@@ -1,1 +1,6 @@
-^0::Run, python getter.py %Clipboard%
+^0::
+send, ^a
+send, ^c
+send, ^{Right}
+Run, python getter.py %Clipboard%
+return
