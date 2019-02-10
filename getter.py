@@ -3,6 +3,7 @@ import urllib.request
 import urllib.parse
 import re
 import os
+import sys
 
 
 def getUrl(searchString):
@@ -27,8 +28,13 @@ def download(url):
     )
 
 
-def test():
-    download(getUrl("be right there boombox cartel remix"))
-
-
-test()
+def get(param):
+    download(getUrl(param))
+    
+print(len(sys.argv))
+for i in range(0,len(sys.argv)):
+    print(sys.argv[i])
+input = ""
+for i in range(1,len(sys.argv)):
+    input = input + sys.argv[i] 
+get(input)

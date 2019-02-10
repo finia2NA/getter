@@ -1,0 +1,1 @@
+^0::Run, python getter.py %Clipboard%
