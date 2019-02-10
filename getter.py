@@ -35,9 +35,9 @@ def getAuthorAndName(url):
     return ""
 
 
-print(len(sys.argv))
-for i in range(0, len(sys.argv)):
-    print(sys.argv[i])
+# print(len(sys.argv))
+# for i in range(0, len(sys.argv)):
+#     print(sys.argv[i])
 input = ""
 for i in range(1, len(sys.argv)):
     input = input + sys.argv[i] + " "
