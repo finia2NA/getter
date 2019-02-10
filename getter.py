@@ -26,6 +26,7 @@ def download(url):
         + "--audio-quality 0 "
         + "-f bestaudio"
         # + "--no-playlist"
+        # + "-o 'C:\\Users\\User\\Downloads\\%(title)s.%(ext)s'"
     )
 
 
