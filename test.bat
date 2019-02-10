@@ -1,2 +1,2 @@
-python getter.py
+python getter.py "what is love"
 pause
