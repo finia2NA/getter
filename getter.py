@@ -6,6 +6,9 @@ import sys
 import re
 import youtube_dl
 
+def getLocation():
+    return open ("destination.txt", "r").read()
+
 ydl_opts = {
     "format": "bestaudio/best",
     "postprocessors": [
@@ -17,9 +20,6 @@ ydl_opts = {
     ],
     "outtmpl": getLocation() + "/%(title)s.%(ext)s",
 }
-
-def getLocation():
-    return open ("settings.txt", "r").read()
 
 def getUrl(searchString):
     query_string = urllib.parse.urlencode({"search_query": searchString})
