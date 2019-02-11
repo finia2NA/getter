@@ -1,6 +1,9 @@
 import sys
 import youtube_dl
 
+def getLocation():
+    return open ("destination.txt", "r").read()
+
 ydl_opts = {
     "format": "bestaudio/best",
     "postprocessors": [
@@ -13,8 +16,6 @@ ydl_opts = {
     "outtmpl": getLocation() + "/%(title)s.%(ext)s",
 }
 
-def getLocation():
-    return open ("settings.txt", "r").read()
 
 url = sys.argv[1]
 
