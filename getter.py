@@ -4,6 +4,19 @@ import urllib.parse
 import os
 import sys
 import re
+import youtube_dl
+
+ydl_opts = {
+    "format": "bestaudio/best",
+    "postprocessors": [
+        {
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "mp3",
+            "preferredquality": "192",
+        }
+    ],
+    "outtmpl": "C:/Zwischenspeicher/%(title)s.%(ext)s",
+}
 
 
 def getUrl(searchString):
@@ -18,16 +31,8 @@ def getUrl(searchString):
 
 
 def download(url):
-    os.system(
-        "youtube-dl.exe "
-        + url
-        + "-x, --extract-audio "
-        + "--audio-format mp3 "
-        + "--audio-quality 0 "
-        + "-f bestaudio"
-        # + "--no-playlist"
-        # + "-o 'C:\\Users\\User\\Downloads\\%(title)s.%(ext)s'"
-    )
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
 
 
 # TODO
