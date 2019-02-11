@@ -9,7 +9,6 @@ You also need the urllib and youtube-dl library.
 2. Start getter.ahk
 ## usage:
 1. search for a song you want to play in a dj software of your choice
-  eg ``` 
 2. realise you don't have the song on you computer.
     - ohshit.jpg
 3. simply press the getter hotkey (ctrl + Return by default.)

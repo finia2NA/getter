@@ -15,9 +15,11 @@ ydl_opts = {
             "preferredquality": "192",
         }
     ],
-    "outtmpl": "C:/Zwischenspeicher/%(title)s.%(ext)s",
+    "outtmpl": getLocation() + "/%(title)s.%(ext)s",
 }
 
+def getLocation():
+    return open ("settings.txt", "r").read()
 
 def getUrl(searchString):
     query_string = urllib.parse.urlencode({"search_query": searchString})
