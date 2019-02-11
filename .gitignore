@@ -1,3 +1,3 @@
 *.mp3
-pycache
-.vscode
+pycache/
+.vscode/
