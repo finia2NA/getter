@@ -18,5 +18,6 @@ _On rekordbox, you should set your destination as your "automatically ad to iTun
     - its progress will be shown in a console window
     - this should take arount 5-10 seconds depending on your processor speed and internet connection
 5. the song should appear in your software now.
+    - if you're using rekordbox in conjunction with itunes, you may have to wait an additional ~10 seconds and/or press the refresh button next to the itunes tab in your track browser.
 6. ???
 7. Profit
