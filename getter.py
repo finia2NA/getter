@@ -45,11 +45,6 @@ def download(url):
         ydl.download([url])
 
 
-# TODO
-def getAuthorAndName(url):
-    return ""
-
-
 def movefiles():
     source = getRenderLocation()
     dest = getDestination()
