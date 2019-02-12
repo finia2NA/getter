@@ -4,7 +4,7 @@ A shortcut for importing music from youtube into your dj library
 You need to have Autohotkey and Python 3 installed.  
 You also need the urllib and youtube-dl library.
 ## Setup:
-1. Set your desired output destination in destination.txt . eg  
+1. Set your desired output destination in destination.txt and your renderlocation in renderlocation.txt . eg  
 ``` C:/aFolder/ ```
 2. Start getter.ahk
 ## Usage:
