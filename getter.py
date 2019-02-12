@@ -1,13 +1,20 @@
 # imports
 import urllib.request
 import urllib.parse
+import shutil
 import os
 import sys
 import re
 import youtube_dl
 
-def getLocation():
-    return open ("destination.txt", "r").read()
+
+def getDestination():
+    return open("destination.txt", "r").read()
+
+
+def getRenderLocation():
+    return open("renderlocation.txt", "r").read()
+
 
 ydl_opts = {
     "format": "bestaudio/best",
@@ -18,8 +25,9 @@ ydl_opts = {
             "preferredquality": "192",
         }
     ],
-    "outtmpl": getLocation() + "/%(title)s.%(ext)s",
+    "outtmpl": getRenderLocation() + "%(title)s.%(ext)s",
 }
+
 
 def getUrl(searchString):
     query_string = urllib.parse.urlencode({"search_query": searchString})
@@ -42,6 +50,15 @@ def getAuthorAndName(url):
     return ""
 
 
+def movefiles():
+    source = getRenderLocation()
+    dest = getDestination()
+
+    files = os.listdir(source)
+    for f in files:
+        shutil.move(source + f, dest)
+
+
 # print(len(sys.argv))
 # for i in range(0, len(sys.argv)):
 #     print(sys.argv[i])
@@ -53,3 +70,5 @@ print("searching for: " + input)
 url = getUrl(input)
 # print("found " + getAuthorAndName(url))
 download(url)
+print("finished")
+movefiles()

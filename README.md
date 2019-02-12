@@ -5,7 +5,7 @@ You need to have Autohotkey and Python 3 installed.
 You also need the urllib and youtube-dl library.
 ## Setup:
 1. Set your desired output destination in destination.txt . eg  
-``` C:/aFolder ```
+``` C:/aFolder/ ```
 2. Start getter.ahk
 ## Usage:
 1. search for a song you want to play in a dj software of your choice
