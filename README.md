@@ -7,6 +7,7 @@ You also need the urllib and youtube-dl library.
 1. Set your desired output destination in destination.txt and your renderlocation in renderlocation.txt . eg  
 ``` C:/aFolder/ ```
 2. Start getter.ahk
+
 _On rekordbox, you should set your destination as your "automatically ad to iTunes" folder. Connecting Rekordbox to iTunes using xml-import is the easiest way to update your library on on the fly on this platform._
 ## Usage:
 1. search for a song you want to play in a dj software of your choice
