@@ -20,21 +20,20 @@ def getUrl(searchString) -> str:
   return "http://www.youtube.com/watch?v=" + search_results[0]
 
 
-def download(url) -> None:
-  with youtube_dl.YoutubeDL(core.getOpts()) as ydl:
-    ydl.download([url])
+if __name__ == "__main__":
+  # print(len(sys.argv))
+  # for i in range(0, len(sys.argv)):
+  #     print(sys.argv[i])
 
+  input = ""
+  for i in range(1, len(sys.argv)):
+    input = input + sys.argv[i] + " "
+  input.strip()
 
-# print(len(sys.argv))
-# for i in range(0, len(sys.argv)):
-#     print(sys.argv[i])
-input = ""
-for i in range(1, len(sys.argv)):
-  input = input + sys.argv[i] + " "
-input.strip()
-print("searching for: " + input)
-url = getUrl(input)
-# print("found " + getAuthorAndName(url))
-download(url)
-print("finished")
-core.movefiles()
+  print("searching for: " + input)
+  # print("found " + getAuthorAndName(url))
+
+  url = getUrl(input)
+  core.urlToFile(url)
+
+  print("finished")
