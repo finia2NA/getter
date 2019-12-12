@@ -2,7 +2,7 @@ import sys
 import youtube_dl
 import os
 import shutil
-import tempfile as tempy
+import tempfile
 
 
 def getDestination() -> str:
@@ -10,7 +10,7 @@ def getDestination() -> str:
 
 
 def getTempLocation() -> str:
-  return tempy.mkdtemp()
+  return tempfile.mkdtemp()
 
 
 def deleteLocation(location: str) -> None:
@@ -36,10 +36,10 @@ def movefiles(tempLocation: str) -> None:
 
   files = os.listdir(source)
   for f in files:
-    shutil.move(source + f, dest)
+    shutil.move(source + "/" + f, dest)
 
 
-def urlToFile(url: str) -> None:
+def download(url: str) -> None:
   print(url)
   tempLocation: str = getTempLocation()
 
@@ -52,4 +52,4 @@ def urlToFile(url: str) -> None:
 
 
 if __name__ == "__main__":
-  urlToFile(sys.argv[1])
+  download(sys.argv[1])

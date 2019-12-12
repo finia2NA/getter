@@ -6,4 +6,3 @@ Sleep, 10
 send, {Delete}
 ; send, ^{Right}
 Run, python getter.py %Clipboard%
-return

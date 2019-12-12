@@ -34,6 +34,6 @@ if __name__ == "__main__":
   # print("found " + getAuthorAndName(url))
 
   url = getUrl(input)
-  core.urlToFile(url)
+  core.download(url)
 
   print("finished")
