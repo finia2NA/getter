@@ -9,10 +9,6 @@ def getDestination() -> str:
   return open("destination.txt", "r").read()
 
 
-def getRenderLocation() -> str:
-  return open("renderlocation.txt", "r").read()
-
-
 def getTempLocation() -> str:
   return tempy.mkdtemp()
 
@@ -21,7 +17,7 @@ def deleteLocation(location: str) -> None:
   shutil.rmtree(location)
 
 
-def getOpts(): return {
+def getOpts(tempLocation: str): return {
     "format": "bestaudio/best",
     "postprocessors": [
         {
@@ -30,12 +26,12 @@ def getOpts(): return {
             "preferredquality": "192",
         }
     ],
-    "outtmpl": getRenderLocation() + "/%(title)s.%(ext)s",
+    "outtmpl": tempLocation + "/%(title)s.%(ext)s",
 }
 
 
-def movefiles() -> None:
-  source = getRenderLocation()
+def movefiles(tempLocation: str) -> None:
+  source = tempLocation
   dest = getDestination()
 
   files = os.listdir(source)
@@ -45,11 +41,14 @@ def movefiles() -> None:
 
 def urlToFile(url: str) -> None:
   print(url)
+  tempLocation: str = getTempLocation()
 
-  with youtube_dl.YoutubeDL(getOpts()) as ydl:
+  with youtube_dl.YoutubeDL(getOpts(tempLocation)) as ydl:
     ydl.download([url])
 
-  movefiles()
+  movefiles(tempLocation)
+
+  deleteLocation(tempLocation)
 
 
 if __name__ == "__main__":
