@@ -5,6 +5,7 @@ You need to have Autohotkey and Python 3 installed.
 You also need the urllib and youtube-dl library.
 ## Setup:
 1. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired output directory.
+
 2. Start getter.ahk
 
 _On rekordbox, you should set your destination as your "automatically ad to iTunes" folder. Connecting Rekordbox to iTunes using xml-import is the easiest way to update your library on on the fly on this platform._
