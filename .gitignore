@@ -1,4 +1,5 @@
 *.mp3
 pycache/
 .vscode/
-destination.txt
+settings.json
+__pycache__/
