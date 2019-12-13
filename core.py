@@ -1,12 +1,17 @@
+from typing import Dict
+
 import sys
-import youtube_dl
 import os
 import shutil
 import tempfile
 
+import youtube_dl
+import json
 
-def getDestination() -> str:
-  return open("destination.txt", "r").read()
+
+def getSettings() -> Dict[str, str]:
+  with open("settings.json", 'r') as j:
+    return json.load(j)
 
 
 def getTempLocation() -> str:
@@ -32,7 +37,7 @@ def getOpts(tempLocation: str): return {
 
 def movefiles(tempLocation: str) -> None:
   source = tempLocation
-  dest = getDestination()
+  dest = getSettings()["destination"]
 
   files = os.listdir(source)
   for f in files:
@@ -52,4 +57,5 @@ def download(url: str) -> None:
 
 
 if __name__ == "__main__":
-  download(sys.argv[1])
+  if len(sys.argv) > 1:
+    download(sys.argv[1])
