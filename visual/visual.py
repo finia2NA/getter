@@ -1,6 +1,6 @@
 # System
 # self
-import core
+# import core
 # QT
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QComboBox
 
@@ -11,35 +11,35 @@ window = QWidget()
 main_layout = QVBoxLayout()
 window.setLayout(main_layout)
 
-def quickWidget():
-  quickWidget = QWidget()
-  quickLayout = QHBoxLayout()
-  quickWidget.setLayout(quickLayout)
-  video_button = QPushButton("video")
-  itunes_button = QPushButton("itunes")
-  quickLayout.addWidget(video_button)
-  quickLayout.addWidget(itunes_button)
-  return quickWidget
+class quickWidget(QWidget):
+  def __init__(self):
+    QWidget.__init__(self)
+    quickLayout = QHBoxLayout()
+    self.setLayout(quickLayout)
+    video_button = QPushButton("video")
+    itunes_button = QPushButton("itunes")
+    quickLayout.addWidget(video_button)
+    quickLayout.addWidget(itunes_button)
 
-def pathWidget():
-  pathWidget = QWidget()
-  pathLayout = QHBoxLayout()
-  pathWidget.setLayout(pathLayout)
-  pathLocation = QLineEdit()
-  pathSelectButton = QPushButton("select")
-  pathLayout.addWidget(pathLocation)
-  pathLayout.addWidget(pathSelectButton)
-  return pathWidget
+class pathWidget(QWidget):
+  def __init__(self):
+    QWidget.__init__(self)
+    pathLayout = QHBoxLayout()
+    self.setLayout(pathLayout)
+    pathLocation = QLineEdit()
+    pathSelectButton = QPushButton("select")
+    pathLayout.addWidget(pathLocation)
+    pathLayout.addWidget(pathSelectButton)
 
-def downloadWidget():
-  downloadWidget = QWidget()
-  downloadLayout = QHBoxLayout()
-  downloadWidget.setLayout(downloadLayout)
-  formatSelector = QComboBox()
-  downloadButton = QPushButton("download")
-  downloadLayout.addWidget(formatSelector)
-  downloadLayout.addWidget(downloadButton)
-  return downloadWidget
+class downloadWidget(QWidget):
+  def __init__(self):
+    QWidget.__init__(self)
+    downloadLayout = QHBoxLayout()
+    self.setLayout(downloadLayout)
+    formatSelector = QComboBox()
+    downloadButton = QPushButton("download")
+    downloadLayout.addWidget(formatSelector)
+    downloadLayout.addWidget(downloadButton)
 
 main_layout.addWidget(quickWidget())
 main_layout.addWidget(pathWidget())
