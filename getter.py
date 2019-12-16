@@ -44,5 +44,5 @@ def main():
   print("finished")
 
 
-if __name__ == "__main__" and len(sys.argv > 1):
+if __name__ == "__main__" and len(sys.argv) > 1:
   main()
