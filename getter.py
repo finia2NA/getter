@@ -43,20 +43,19 @@ def getOpts(tempLocation: str, format: str = "wav"):
     AttributeError: "wrong format"
 
 
-def movefiles(tempLocation: str) -> None:
+def movefiles(tempLocation: str, dest = getSettings()["destination"]) -> None:
   source = tempLocation
-  dest = getSettings()["destination"]
 
   files = os.listdir(source)
   for f in files:
     shutil.move(source + "/" + f, dest)
 
 
-def downloadUrl(url: str) -> None:
+def downloadUrl(url: str, format = "wav", dest = getSettings()["destination"]) -> None:
   print(url)
   tempLocation: str = getTempLocation()
 
-  with youtube_dl.YoutubeDL(getOpts(tempLocation)) as ydl:
+  with youtube_dl.YoutubeDL(getOpts(tempLocation, format = format)) as ydl:
     ydl.download([url])
 
   movefiles(tempLocation)

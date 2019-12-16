@@ -2,9 +2,10 @@
 # self
 import getter
 import widgets
+
 # QT
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
-from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
+from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QComboBox, QFileDialog
 
 app = QApplication([])
 app.setApplicationName("Getter Visual")
@@ -16,17 +17,19 @@ window.setLayout(main_layout)
 
 quickWidget = widgets.quickWidget()
 pathWidget = widgets.pathWidget()
-downloadWidget = widgets.downloadWidget(on_download=download_clicked)
+downloadWidget = widgets.downloadWidget()
 
 
 def download_clicked():
-  path = pathWidget.getPath()
-  format = downloadWidget.getFormat()
-  linkList = []
-  print("hi")
-  for link in linkList:
-    getter.downloadUrl(link)
+    path = pathWidget.getPath()
+    format = downloadWidget.getFormat()
+    linkList = []
+    print("hi")
+    for link in linkList:
+        getter.downloadUrl(link, format, path)
 
+
+downloadWidget.setOnDownload(download_clicked)
 
 main_layout.addWidget(quickWidget)
 main_layout.addWidget(pathWidget)

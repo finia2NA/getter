@@ -61,3 +61,6 @@ class downloadWidget(QWidget):
 
   def getFormat(self) -> str:
     return self.formatSelector.currentText()
+
+  def setOnDownload(self, fun):
+    self.downloadButton.clicked.connect(fun)
