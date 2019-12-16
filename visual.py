@@ -21,15 +21,27 @@ downloadWidget = widgets.downloadWidget()
 
 
 def download_clicked():
-    path = pathWidget.getPath()
-    format = downloadWidget.getFormat()
-    linkList = []
-    print("hi")
-    for link in linkList:
-        getter.downloadUrl(link, format, path)
+  path = pathWidget.getPath()
+  format = downloadWidget.getFormat()
+  linkList = []  # TODO: replace with real list
+  print("hi")
+  for link in linkList:
+    getter.downloadUrl(link, format, path)
+
+
+def itunes_clicked():
+  pathWidget.setPath("C:/Cache/hierituneseinfuegen")
+  downloadWidget.setFormat("wav")
+
+
+def video_clicked():
+  pathWidget.setPath("C:/Videos")
+  downloadWidget.setFormat("mp4")
 
 
 downloadWidget.setOnDownload(download_clicked)
+quickWidget.setOnItunesButton(itunes_clicked)
+quickWidget.setOnVideoButton(video_clicked)
 
 main_layout.addWidget(quickWidget)
 main_layout.addWidget(pathWidget)

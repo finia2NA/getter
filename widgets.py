@@ -1,22 +1,27 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 
-
 class quickWidget(QWidget):
   def __init__(self, on_itunes=None, on_video=None):
     QWidget.__init__(self)
     quickLayout = QHBoxLayout()
     self.setLayout(quickLayout)
 
-    videoButton = QPushButton("video")
-    itunesButton = QPushButton("itunes")
+    self.videoButton = QPushButton("video")
+    self.itunesButton = QPushButton("itunes")
     if on_video != None:
-      videoButton.clicked.connect(on_video)
+      self.videoButton.clicked.connect(self.on_video)
     if on_itunes != None:
-      itunesButton.clicked.connect(on_itunes)
+      self.itunesButton.clicked.connect(self.on_itunes)
 
-    quickLayout.addWidget(videoButton)
-    quickLayout.addWidget(itunesButton)
+    quickLayout.addWidget(self.videoButton)
+    quickLayout.addWidget(self.itunesButton)
+
+  def setOnVideoButton(self, fun):
+    self.videoButton.clicked.connect(fun)
+
+  def setOnItunesButton(self, fun):
+    self.itunesButton.clicked.connect(fun)
 
 
 class pathWidget(QWidget):
@@ -61,6 +66,9 @@ class downloadWidget(QWidget):
 
   def getFormat(self) -> str:
     return self.formatSelector.currentText()
+
+  def setFormat(self, format : str) -> None:
+    self.formatSelector.setCurrentText(format)
 
   def setOnDownload(self, fun):
     self.downloadButton.clicked.connect(fun)
