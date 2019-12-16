@@ -29,6 +29,7 @@ class pathWidget(QWidget):
     QWidget.__init__(self)
     pathLayout = QHBoxLayout()
     self.setLayout(pathLayout)
+    
     self.pathLocation = QLineEdit()
 
     self.pathSelectButton = QPushButton("select")
