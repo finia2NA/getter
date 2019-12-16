@@ -29,8 +29,8 @@ def getArgs() -> str:
 
 
 def magicSearch(toTest: str) -> None:
-  if url_validate(input):
-    return search(input)
+  if url_validate(toTest):
+    return search(toTest)
   else:
     return toTest
 
