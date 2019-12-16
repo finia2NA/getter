@@ -5,6 +5,7 @@ import shutil
 import os
 import sys
 import re
+from validators import url as url_validate
 import youtube_dl
 import core
 
@@ -20,16 +21,21 @@ def search(searchString) -> str:
   return "http://www.youtube.com/watch?v=" + search_results[0]
 
 
-def main():
-  # print(len(sys.argv))
-  # for i in range(0, len(sys.argv)):
-  #     print(sys.argv[i])
-
+def getArgs() -> str:
   input = ""
   for i in range(1, len(sys.argv)):
     input = input + sys.argv[i] + " "
   input.strip()
 
+
+def magicSearch(toTest: str) -> None:
+  if url_validate(input):
+    return search(input)
+  else:
+    return toTest
+
+
+def main():
   print("searching for: " + input)
   # print("found " + getAuthorAndName(url))
 
@@ -38,5 +44,5 @@ def main():
   print("finished")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and len(sys.argv > 1):
   main()
