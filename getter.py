@@ -1,13 +1,70 @@
-# imports
-import urllib.request
-import urllib.parse
-import shutil
-import os
+from typing import Dict
+
 import sys
+import os
+import shutil
+import tempfile
 import re
+
+import json
+import urllib.parse
+import urllib.request
 from validators import url as url_validate
 import youtube_dl
-import core
+
+
+def getSettings() -> Dict[str, str]:
+  with open("settings.json", 'r') as j:
+    return json.load(j)
+
+
+def getTempLocation() -> str:
+  return tempfile.mkdtemp()
+
+
+def deleteLocation(location: str) -> None:
+  shutil.rmtree(location)
+
+
+def getOpts(tempLocation: str, format: str = "wav"):
+  if(format == "wav"):
+    return {
+        "format": "bestaudio/best",
+        "postprocessors": [
+            {
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "wav",
+                "preferredquality": "192",
+            }
+        ],
+        "outtmpl": tempLocation + "/%(title)s.%(ext)s",
+    }
+  else:
+    AttributeError: "wrong format"
+
+
+def movefiles(tempLocation: str) -> None:
+  source = tempLocation
+  dest = getSettings()["destination"]
+
+  files = os.listdir(source)
+  for f in files:
+    shutil.move(source + "/" + f, dest)
+
+
+def downloadUrl(url: str) -> None:
+  print(url)
+  tempLocation: str = getTempLocation()
+
+  with youtube_dl.YoutubeDL(getOpts(tempLocation)) as ydl:
+    ydl.download([url])
+
+  movefiles(tempLocation)
+
+  deleteLocation(tempLocation)
+
+
+# imports
 
 
 def search(searchString) -> str:
@@ -22,10 +79,11 @@ def search(searchString) -> str:
 
 
 def getArgs() -> str:
-  input = ""
+  args = ""
   for i in range(1, len(sys.argv)):
-    input = input + sys.argv[i] + " "
-  input.strip()
+    args = args + sys.argv[i] + " "
+  args.strip()
+  return args
 
 
 def magicSearch(toTest: str) -> None:
@@ -36,10 +94,11 @@ def magicSearch(toTest: str) -> None:
 
 
 def main():
-  print("searching for: " + input)
-  # print("found " + getAuthorAndName(url))
+  searchString = getArgs()
 
-  core.download(search(input))
+  print("searching for: " + searchString)
+
+  downloadUrl(magicSearch(searchString))
 
   print("finished")
 
