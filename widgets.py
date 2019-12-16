@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 
+
 class quickWidget(QWidget):
   def __init__(self, on_itunes=None, on_video=None):
     QWidget.__init__(self)
@@ -32,7 +33,7 @@ class pathWidget(QWidget):
     pathLayout.addWidget(self.pathSelectButton)
 
   def getPath(self) -> str:
-    self.pathLocation.text()
+    return self.pathLocation.text()
 
   def setPath(self, newPath: str):
     self.pathLocation.setText(newPath)
@@ -50,7 +51,11 @@ class downloadWidget(QWidget):
     self.formatSelector = QComboBox()
     formats = ["wav", "mp3", "mp4"]
     self.formatSelector.addItems(formats)
+
     self.downloadButton = QPushButton("download")
+    if on_download != None:
+      self.downloadButton.clicked.connect(on_download)
+
     downloadLayout.addWidget(self.formatSelector)
     downloadLayout.addWidget(self.downloadButton)
 
