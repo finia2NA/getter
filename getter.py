@@ -1,5 +1,7 @@
 from typing import Dict
 
+import formats
+
 import sys
 import os
 import shutil
@@ -27,20 +29,14 @@ def deleteLocation(location: str) -> None:
 
 
 def getOpts(tempLocation: str, format: str = "wav"):
-  if(format == "wav"):
-    return {
-        "format": "bestaudio/best",
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "wav",
-                "preferredquality": "192",
-            }
-        ],
-        "outtmpl": tempLocation + "/%(title)s.%(ext)s",
-    }
+  if format == "wav":
+    return formats.wav(tempLocation)
+  elif format == "mp3":
+    return formats.mp3(tempLocation)
+  elif format == "mp4":
+    return formats.mp4(tempLocation)
   else:
-    AttributeError: "wrong format"
+    AttributeError: "Invalid format"
 
 
 def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
