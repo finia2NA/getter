@@ -26,10 +26,10 @@ downloadWidget = widgets.DownloadWidget()
 def download_clicked():
   path = pathWidget.getPath()
   format = downloadWidget.getFormat()
-  linkList = []  # TODO: replace with real list
+  searchList = videoWidget.getAsList()
   print("hi")
-  for link in linkList:
-    getter.downloadUrl(link, format, path)
+  for search in searchList:
+    getter.downloadUrl(getter.magicSearch(search), format=format, dest=path)
 
 
 def itunes_clicked():
