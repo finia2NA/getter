@@ -16,8 +16,6 @@ class Entry(QWidget):
     main = self
     self.entryDelete.clicked.connect(main.deleteLater)
 
-    self.entryDelete.clicked.connect(self.finalize)
-
     self.entryEdit.returnPressed.connect(self.finalize)
     self.entryLayout.addWidget(self.entryEdit)
 
