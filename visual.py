@@ -2,9 +2,10 @@
 # self
 import getter
 import widgets
+import videolist
 
 # QT
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFrame
 from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QComboBox, QFileDialog
 
 app = QApplication([])
@@ -15,9 +16,11 @@ window = QWidget()
 main_layout = QVBoxLayout()
 window.setLayout(main_layout)
 
-quickWidget = widgets.quickWidget()
-pathWidget = widgets.pathWidget()
-downloadWidget = widgets.downloadWidget()
+videoWidget = videolist.VideoWidget()
+seperator = widgets.Seperator()
+quickWidget = widgets.QuickWidget()
+pathWidget = widgets.PathWidget()
+downloadWidget = widgets.DownloadWidget()
 
 
 def download_clicked():
@@ -43,6 +46,8 @@ downloadWidget.setOnDownload(download_clicked)
 quickWidget.setOnItunesButton(itunes_clicked)
 quickWidget.setOnVideoButton(video_clicked)
 
+main_layout.addWidget(videoWidget)
+main_layout.addWidget(seperator)
 main_layout.addWidget(quickWidget)
 main_layout.addWidget(pathWidget)
 main_layout.addWidget(downloadWidget)

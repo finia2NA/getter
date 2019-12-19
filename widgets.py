@@ -1,7 +1,10 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFrame
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 
-class quickWidget(QWidget):
+from PyQt5.QtWidgets import QSizePolicy
+
+
+class QuickWidget(QWidget):
   def __init__(self, on_itunes=None, on_video=None):
     QWidget.__init__(self)
     quickLayout = QHBoxLayout()
@@ -24,12 +27,12 @@ class quickWidget(QWidget):
     self.itunesButton.clicked.connect(fun)
 
 
-class pathWidget(QWidget):
+class PathWidget(QWidget):
   def __init__(self):
     QWidget.__init__(self)
     pathLayout = QHBoxLayout()
     self.setLayout(pathLayout)
-    
+
     self.pathLocation = QLineEdit()
 
     self.pathSelectButton = QPushButton("select")
@@ -49,7 +52,7 @@ class pathWidget(QWidget):
     self.setPath(path)
 
 
-class downloadWidget(QWidget):
+class DownloadWidget(QWidget):
   def __init__(self, on_download=None):
     QWidget.__init__(self)
     downloadLayout = QHBoxLayout()
@@ -68,8 +71,15 @@ class downloadWidget(QWidget):
   def getFormat(self) -> str:
     return self.formatSelector.currentText()
 
-  def setFormat(self, format : str) -> None:
+  def setFormat(self, format: str) -> None:
     self.formatSelector.setCurrentText(format)
 
   def setOnDownload(self, fun):
     self.downloadButton.clicked.connect(fun)
+
+
+class Seperator(QFrame):
+  def __init__(self):
+    QFrame.__init__(self)
+    self.setFrameShape(QFrame.HLine)
+    self.setFrameShadow(QFrame.Sunken)
