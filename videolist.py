@@ -39,10 +39,6 @@ class VideoWidget(QWidget):
     firstLine = Entry(self.spawnNextField)
     self.listLayout.addWidget(firstLine)
 
-    wowButton = QPushButton()
-    wowButton.clicked.connect(self.getAsList)
-    self.listLayout.addWidget(wowButton)
-
   def spawnNextField(self):
     nextField = Entry(self.spawnNextField)
     self.listLayout.addWidget(nextField)
