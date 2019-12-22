@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QSizePolicy
 
 import getter
 
+from functools import partial
 
 class QuickButton(QPushButton):
   def __init__(self, descriptor, on_click=None):
@@ -14,7 +15,8 @@ class QuickButton(QPushButton):
 
   def setOnClicked(self, on_clicked):
     if on_clicked != None:
-      self.clicked.connect(on_clicked(self.destination, self.format))
+      fun = partial(on_clicked, self.destination, self.format)
+      self.clicked.connect(fun)
 
 
 class QuickWidget(QWidget):
@@ -28,6 +30,7 @@ class QuickWidget(QWidget):
     for descriptor in getter.getSettings()["buttons"]:
       button = QuickButton(descriptor, on_click)
       self.buttons.append(button)
+      quickLayout.addWidget(button)
 
   def setOnClicked(self, on_click):
     for b in self.buttons:
