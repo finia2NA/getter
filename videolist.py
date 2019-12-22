@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
+from PyQt5.QtGui import QFont
 
 
 class Entry(QWidget):
@@ -33,7 +34,8 @@ class VideoWidget(QWidget):
     self.listLayout = QVBoxLayout()
     self.setLayout(self.listLayout)
 
-    title = QLabel("Video")
+    title = QLabel("Videos")
+    title.setFont(QFont("Roboto", 20, QFont.Condensed))
     self.listLayout.addWidget(title)
 
     firstLine = Entry(self.spawnNextField)

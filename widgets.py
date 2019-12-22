@@ -10,8 +10,8 @@ class QuickWidget(QWidget):
     quickLayout = QHBoxLayout()
     self.setLayout(quickLayout)
 
-    self.videoButton = QPushButton("video")
-    self.itunesButton = QPushButton("itunes")
+    self.videoButton = QPushButton("Video")
+    self.itunesButton = QPushButton("iTunes")
     if on_video != None:
       self.videoButton.clicked.connect(self.on_video)
     if on_itunes != None:
