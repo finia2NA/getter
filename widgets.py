@@ -1,30 +1,37 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFrame
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
-
 from PyQt5.QtWidgets import QSizePolicy
+
+import getter
+
+
+class QuickButton(QPushButton):
+  def __init__(self, descriptor, on_click=None):
+    QPushButton.__init__(self, descriptor["name"])
+    self.destination = descriptor["destination"]
+    self.format = descriptor["format"]
+    self.setOnClicked(on_click)
+
+  def setOnClicked(self, on_clicked):
+    if on_clicked != None:
+      self.clicked.connect(on_clicked(self.destination, self.format))
 
 
 class QuickWidget(QWidget):
-  def __init__(self, on_itunes=None, on_video=None):
+  def __init__(self, on_click=None):
     QWidget.__init__(self)
     quickLayout = QHBoxLayout()
     self.setLayout(quickLayout)
 
-    self.videoButton = QPushButton("Video")
-    self.itunesButton = QPushButton("iTunes")
-    if on_video != None:
-      self.videoButton.clicked.connect(self.on_video)
-    if on_itunes != None:
-      self.itunesButton.clicked.connect(self.on_itunes)
+    self.buttons = []
 
-    quickLayout.addWidget(self.videoButton)
-    quickLayout.addWidget(self.itunesButton)
+    for descriptor in getter.getSettings()["buttons"]:
+      button = QuickButton(descriptor, on_click)
+      self.buttons.append(button)
 
-  def setOnVideoButton(self, fun):
-    self.videoButton.clicked.connect(fun)
-
-  def setOnItunesButton(self, fun):
-    self.itunesButton.clicked.connect(fun)
+  def setOnClicked(self, on_click):
+    for b in self.buttons:
+      b.setOnClicked(on_click)
 
 
 class PathWidget(QWidget):

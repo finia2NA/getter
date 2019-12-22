@@ -27,24 +27,16 @@ def download_clicked():
   path = pathWidget.getPath()
   format = downloadWidget.getFormat()
   searchList = videoWidget.getAsList()
-  print("hi")
   for search in searchList:
     getter.downloadUrl(getter.magicSearch(search), format=format, dest=path)
 
+def quick_clicked(path, format):
+  pathWidget.setPath(path)
+  downloadWidget.setFormat(format)
 
-def itunes_clicked():
-  pathWidget.setPath("C:/Cache/hierituneseinfuegen")
-  downloadWidget.setFormat("wav")
-
-
-def video_clicked():
-  pathWidget.setPath("C:/Videos")
-  downloadWidget.setFormat("mp4")
-
+quickWidget.setOnClicked(quick_clicked)
 
 downloadWidget.setOnDownload(download_clicked)
-quickWidget.setOnItunesButton(itunes_clicked)
-quickWidget.setOnVideoButton(video_clicked)
 
 main_layout.addWidget(videoWidget)
 main_layout.addWidget(seperator)

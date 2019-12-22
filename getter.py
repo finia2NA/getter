@@ -15,7 +15,7 @@ from validators import url as url_validate
 import youtube_dl
 
 
-def getSettings() -> Dict[str, str]:
+def getSettings():
   with open("settings.json", 'r') as j:
     return json.load(j)
 

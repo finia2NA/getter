@@ -1,3 +1,15 @@
 {
-  "destination": "C:/myMusic"
+  "destination": "C:/userfiles/Music/itunes/Automatically Add to iTunes",
+  "buttons": [
+    {
+      "name": "iTunes",
+      "destination": "C:/userfiles/Music/itunes/Automatically Add to iTunes",
+      "format": "wav"
+    },
+    {
+      "name": "Video",
+      "destination": "A:/Zwischenspeicher A/VideoTest",
+      "format": "mp4"
+    }
+  ]
 }
