@@ -1,8 +1,8 @@
 # System
 # self
 import getter
-import widgets
-import videolist
+from components import widgets
+from components import videolist
 
 # QT
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFrame

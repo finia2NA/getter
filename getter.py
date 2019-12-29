@@ -1,6 +1,6 @@
 from typing import Dict
 
-import formats
+from components import formats
 
 import sys
 import os
