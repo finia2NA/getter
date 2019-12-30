@@ -10,3 +10,6 @@ A Simple Youtube Downloader
     - For Hotkey mode, start `getter.ahk`
     - For Visual mode, start `visual.py`
     - For Command Line mode, run `getter.py`
+
+## Planed Features
+https://trello.com/b/3dv0Nx0c/getter
