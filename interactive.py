@@ -1,6 +1,7 @@
 import getter
 
-line: str = ""
-while line!="exit":
-  line = input()
+while True:
+  line = input("> ")
+  if line == "exit":
+    break
   getter.downloadUrl(getter.magicSearch(line))
