@@ -1,23 +1,12 @@
 # getter
-A shortcut for importing music from youtube into your dj library
+A Simple Youtube Downloader
 ## Requirements:
-You need to have Autohotkey and Python 3 installed.  
-You also need the urllib and youtube-dl library.
+- You need to have Python 3 and PIP installed.  
+- For Hotkeys, you need Autohotkey
 ## Setup:
-1. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired output directory.
-
-2. Start getter.ahk
-
-_On rekordbox, you should set your destination as your "automatically ad to iTunes" folder. Connecting Rekordbox to iTunes using xml-import is the easiest way to update your library on on the fly on this platform._
-## Usage:
-1. search for a song you want to play in a dj software of your choice
-2. realise you don't have the song on you computer.
-    - ohshit.jpg
-3. simply press the getter hotkey (ctrl + 0 by default.)
-4. getter will download the song off youtube.
-    - its progress will be shown in a console window
-    - this should take arount 5-10 seconds depending on your processor speed and internet connection
-5. the song should appear in your software now.
-    - if you're using rekordbox in conjunction with itunes, you may have to wait an additional ~10 seconds and/or press the refresh button next to the itunes tab in your track browser.
-6. ???
-7. Profit
+1. run `pip install -r requirements.txt` in the getter folder.
+2. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired settings.
+3. Start the program:
+    - For Hotkey mode, start `getter.ahk`
+    - For Visual mode, start `visual.py`
+    - For Command Line mode, run `getter.py`
