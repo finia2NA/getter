@@ -53,7 +53,7 @@ def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
 
 
 def downloadUrl(url: str, format="wav", dest=getSettings()["destination"]) -> None:
-  print("[getter]", url)
+  print("[getter]","downloading:", url)
   tempLocation: str = getTempLocation()
 
   with youtube_dl.YoutubeDL(getOpts(tempLocation, format=format)) as ydl:
@@ -88,7 +88,7 @@ def getArgs() -> str:
 def magicSearch(toTest: str) -> None:
   if not url_validate(toTest):
     re = search(toTest)
-    print("[getter]", "resolved", toTest, "to", re)
+    print("[getter]", "resolved", '"'+ toTest+'"', "to", re)
     return re
   else:
     print("[getter]", "interpretet input as url")
