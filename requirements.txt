@@ -2,3 +2,4 @@ pyqt5
 validators
 urllib3
 youtube_dl
+ffmpeg
