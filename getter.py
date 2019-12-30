@@ -44,6 +44,8 @@ def getOpts(tempLocation: str, format: str = "wav"):
 
 def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
   source = tempLocation
+  if not os.path.exists(dest):
+    os.mkdir(dest)
 
   files = os.listdir(source)
   for f in files:
