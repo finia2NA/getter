@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(
     description="A multi-workflow YouTube downloader")
 
 modes = parser.add_mutually_exclusive_group()
-modes.add_argument("-c", "--core", type=str,
+modes.add_argument("-c", "--core", type=str, nargs="*",
                    help="traditional one-shot getter. Provide a searchstring or youtube URL to download")
 modes.add_argument("-i", "--interactive",
                    action="store_true", help="interactive getter")
@@ -23,7 +23,8 @@ parser.add_argument("-f", "--format", type=str,
 args = parser.parse_args()
 
 if args.core:
-  core.main(searchString=args.core, format=args.format, dest=args.dest)
+  searchString = core.getArgs(args.core)
+  core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 if args.visual:
   visual.main()

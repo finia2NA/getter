@@ -74,11 +74,11 @@ def search(searchString) -> str:
   return "http://www.youtube.com/watch?v=" + search_results[0]
 
 
-def getArgs() -> str:
+def getArgs(argList: [str]=sys.argv[1:]) -> str:
   args = ""
-  for i in range(1, len(sys.argv)):
-    args = args + sys.argv[i] + " "
-  args.strip()
+  for word in argList:
+    args = args + word + " "
+  args = args.strip()
   return args
 
 
@@ -98,7 +98,7 @@ def main(searchString: str, format: str = None, dest: str = None):
   if dest == None:
     dest = getSettings()["destination"]
 
-  print("[getter]", "searching for: " + searchString)
+  print("[getter]", "searching for: \"" + searchString + "\"")
 
   downloadUrl(magicSearch(searchString), format=format, dest=dest)
 
