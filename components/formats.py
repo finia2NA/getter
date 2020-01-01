@@ -1,8 +1,16 @@
+# HOW TO ADD A FORMAT:
+# - Write a function taking the render location as an input
+#   and giving a dictionary of options as an output
+# - Add the function to getAllFormats
+
+from typing import Dict
+
+
 def getAllFormats():
   return [wav, mp3, mp4]
 
 
-def wav(tempLocation): return {
+def wav(tempLocation: str) -> Dict: return {
     "format": "bestaudio/best",
     "postprocessors": [
         {
@@ -15,7 +23,7 @@ def wav(tempLocation): return {
 }
 
 
-def mp3(tempLocation): return {
+def mp3(tempLocation: str) -> Dict: return {
     "format": "bestaudio/best",
     "postprocessors": [
         {
@@ -28,7 +36,7 @@ def mp3(tempLocation): return {
 }
 
 
-def mp4(tempLocation): return {
+def mp4(tempLocation: str) -> Dict: return {
     "format": "best",
     "postprocessors": [
         {
