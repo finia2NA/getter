@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDia
 from PyQt5.QtWidgets import QSizePolicy
 
 import getter
+from components import formats as formatProvider
 
 from functools import partial
 
@@ -68,7 +69,7 @@ class DownloadWidget(QWidget):
     downloadLayout = QHBoxLayout()
     self.setLayout(downloadLayout)
     self.formatSelector = QComboBox()
-    formats = ["wav", "mp3", "mp4"]
+    formats = map(lambda f: f.__name__, formatProvider.getAllFormats())
     self.formatSelector.addItems(formats)
 
     self.downloadButton = QPushButton("download")
