@@ -31,13 +31,10 @@ def deleteLocation(location: str) -> None:
   shutil.rmtree(location)
 
 
-def getOpts(tempLocation: str, format: str = "wav"):
-  if format == "wav":
-    return formats.wav(tempLocation)
-  elif format == "mp3":
-    return formats.mp3(tempLocation)
-  elif format == "mp4":
-    return formats.mp4(tempLocation)
+def getOpts(tempLocation: str, format: str):
+  for fun in formats.getAllFormats():
+    if fun.__name__ == format:
+      return fun(tempLocation)
   else:
     AttributeError: "Invalid format"
 
@@ -52,8 +49,8 @@ def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
     shutil.move(source + "/" + f, dest)
 
 
-def downloadUrl(url: str, format="wav", dest=getSettings()["destination"]) -> None:
-  print("[getter]","downloading:", url)
+def downloadUrl(url: str, format: str, dest: str) -> None:
+  print("[getter]", "downloading:", url)
   tempLocation: str = getTempLocation()
 
   with youtube_dl.YoutubeDL(getOpts(tempLocation, format=format)) as ydl:
@@ -88,21 +85,23 @@ def getArgs() -> str:
 def magicSearch(toTest: str) -> None:
   if not url_validate(toTest):
     re = search(toTest)
-    print("[getter]", "resolved", '"'+ toTest+'"', "to", re)
+    print("[getter]", "resolved", '"' + toTest+'"', "to", re)
     return re
   else:
-    print("[getter]", "interpretet input as url")
+    print("[getter]", "interpretet input as youtube url")
     return toTest
 
 
-def main(searchString:str):
+def main(searchString: str, format: str = None, dest: str = None):
+  if format == None:
+    format = "wav"
+  if dest == None:
+    dest = getSettings()["destination"]
 
-  print("searching for: " + searchString)
+  print("[getter]", "searching for: " + searchString)
 
-  downloadUrl(magicSearch(searchString))
-
-  print("finished")
+  downloadUrl(magicSearch(searchString), format=format, dest=dest)
 
 
 if __name__ == "__main__" and len(sys.argv) > 1:
-  main()
+  main(getArgs())

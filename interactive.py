@@ -1,10 +1,13 @@
 import core
-def main():
+
+
+def main(format: str = None, dest: str = None):
   while True:
     line = input("> ")
     if line == "exit":
       break
-    core.downloadUrl(core.magicSearch(line))
+    core.main(line, format=format, dest=dest)
+
 
 if __name__ == "__main__":
-    main()
+  main()
