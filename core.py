@@ -95,8 +95,7 @@ def magicSearch(toTest: str) -> None:
     return toTest
 
 
-def main():
-  searchString = getArgs()
+def main(searchString:str):
 
   print("searching for: " + searchString)
 
