@@ -3,3 +3,4 @@ pycache/
 .vscode/
 settings.json
 __pycache__/
+ffmpeg.exe
