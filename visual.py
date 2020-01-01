@@ -1,6 +1,6 @@
 # System
 # self
-import getter
+import core
 from components import widgets
 from components import videolist
 
@@ -28,7 +28,7 @@ def download_clicked():
   format = downloadWidget.getFormat()
   searchList = videoWidget.getAsList()
   for search in searchList:
-    getter.downloadUrl(getter.magicSearch(search), format=format, dest=path)
+    core.downloadUrl(core.magicSearch(search), format=format, dest=path)
 
 def quick_clicked(path, format):
   pathWidget.setPath(path)

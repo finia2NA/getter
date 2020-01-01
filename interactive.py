@@ -1,7 +1,7 @@
-import getter
+import core
 
 while True:
   line = input("> ")
   if line == "exit":
     break
-  getter.downloadUrl(getter.magicSearch(line))
+  core.downloadUrl(core.magicSearch(line))
