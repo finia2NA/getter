@@ -48,5 +48,4 @@ class VideoWidget(QWidget):
     self.listLayout.addWidget(nextField)
 
   def getAsList(self):
-    return reduce(lambda a, b: a + b,
-                  map(lambda e: [e.text()] if e.text() != "" else [], self.findChildren(QLineEdit)))
+    return filter(lambda text: text != "", map(lambda e: e.text(), self.findChildren(QLineEdit)))
