@@ -2,8 +2,8 @@
 A multi-workflow YouTube downloader
 ## Requirements:
 - You need to have Python 3 and PIP installed.  
-- For Hotkeys, you need Autohotkey
-- On Windows, you will need to have ffmpeg in your path or in the project's root directory
+- For Hotkey mode, you need Autohotkey
+- On Windows, you need to have ffmpeg in your PATH or in the project's root directory
 ## Setup:
 1. run `pip install -r requirements.txt` in the getter folder.
 2. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired settings.
