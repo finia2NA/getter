@@ -15,7 +15,7 @@ modes.add_argument("-c", "--core", type=str, nargs="*",
 modes.add_argument("-i", "--interactive",
                    action="store_true", help="interactive getter")
 modes.add_argument("-v", "--visual", action="store_true", help="visual getter")
-modes.add_argument("-ahk", "--autohotkey",
+modes.add_argument("-hot", "--hotkey",
                    action="store_true", help="getter hotkey mode")
 
 parser.add_argument("-d", "--dest", type=str,
@@ -40,5 +40,5 @@ elif args.visual:
 elif args.interactive:
   interactive.main(format=args.format, dest=args.dest)
 
-elif args.autohotkey:
+elif args.hotkey:
   hotkey.main(format=args.format, destination=args.dest)
