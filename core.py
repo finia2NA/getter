@@ -46,7 +46,10 @@ def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
 
   files = os.listdir(source)
   for f in files:
-    shutil.move(source + "/" + f, dest)
+    try:
+      shutil.move(source + "/" + f, dest)
+    except shutil.Error as e:
+      print("[getter]", str(e), "\n...skipping")
 
 
 def downloadUrl(url: str, format: str, dest: str) -> None:
@@ -74,7 +77,7 @@ def search(searchString) -> str:
   return "http://www.youtube.com/watch?v=" + search_results[0]
 
 
-def getArgs(argList: [str]=sys.argv[1:]) -> str:
+def getArgs(argList: [str] = sys.argv[1:]) -> str:
   args = ""
   for word in argList:
     args = args + word + " "
