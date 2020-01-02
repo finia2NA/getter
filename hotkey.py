@@ -18,7 +18,7 @@ def go(format, destination):
   # get text field into clipboard
   # TODO: maybe find a way to do this keycombo-agnostic
 
-  # unfortunatly the keyboard isn't updated immediatly when we press ctrl+t. so, we wait until we know the right value is in the clipboard
+  # unfortunatly the keyboard isn't updated immediatly when we press ctrl+x. so, we wait until we know the right value is in the clipboard
   clearstring = randomString()
   clipboard.copy(clearstring)
   keyboard.press_and_release("ctrl+a, ctrl+x")
