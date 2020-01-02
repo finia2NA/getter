@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 from PyQt5.QtGui import QFont
 
+from functools import reduce
+
 
 class Entry(QWidget):
   def __init__(self, returnAction=lambda: None, deleteAction=lambda: None):
@@ -46,12 +48,4 @@ class VideoWidget(QWidget):
     self.listLayout.addWidget(nextField)
 
   def getAsList(self):
-    edits = self.findChildren(QLineEdit)
-    # TODO: next should really be done with map() and filter()
-    strings = []
-    for e in edits:
-      line = e.text()
-      if line != "":
-        strings.append(line)
-
-    return strings
+    return filter(lambda text: text != "", map(lambda e: e.text(), self.findChildren(QLineEdit)))

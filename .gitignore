@@ -4,3 +4,4 @@ pycache/
 settings.json
 __pycache__/
 ffmpeg.exe
+.idea/

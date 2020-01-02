@@ -1,7 +1,13 @@
-import getter
+import core
 
-while True:
-  line = input("> ")
-  if line == "exit":
-    break
-  getter.downloadUrl(getter.magicSearch(line))
+
+def main(format: str = None, dest: str = None):
+  while True:
+    line = input("> ")
+    if line == "exit":
+      break
+    core.main(line, format=format, dest=dest)
+
+
+if __name__ == "__main__":
+  main()
