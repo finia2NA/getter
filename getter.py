@@ -27,7 +27,8 @@ if args.core:
   core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 if args.visual:
-  visual.main()
+  visual.main(destination=args.dest if args.dest != None
+              else core.getSettings()["destination"])
 
 if args.interactive:
   interactive.main(format=args.format, dest=args.dest)
