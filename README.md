@@ -6,7 +6,11 @@ A multi-workflow YouTube downloader
 ## Setup:
 1. run `pip install -r requirements.txt` in the getter folder.
 2. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired settings.
-  - You can change default destination, hotkey mode keycombo and quick configuration buttons for visual mode
+  - You can change
+    - default destination
+    - default format
+    - hotkey mode keycombo
+    - quick configuration buttons for visual mode
 
 ## Usage
 Getter supports 4 different workflows:
@@ -15,7 +19,7 @@ Getter supports 4 different workflows:
   - interactive mode, which allows you to pick a new video or playlist to download when the first one is finished.
   - visual mode, which offers a GUI
 
-You can find out information about running these modes by running getter.py with the `-h` flag
+You can find out information about running these modes and the additional options by running getter.py with the `-h` flag
 
 ## Planned Features
 https://trello.com/b/3dv0Nx0c/getter

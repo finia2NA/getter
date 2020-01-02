@@ -97,7 +97,7 @@ def magicSearch(toTest: str) -> None:
 
 def main(searchString: str, format: str = None, dest: str = None):
   if format == None:
-    format = "wav"
+    format = getSettings()["format"]
   if dest == None:
     dest = getSettings()["destination"]
 
