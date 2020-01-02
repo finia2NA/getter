@@ -20,7 +20,7 @@ def getSettings():
     with open("settings.json", 'r') as j:
       return json.load(j)
   except FileNotFoundError:
-    FileNotFoundError("Please provide a settings.json")
+    FileNotFoundError: "Please provide a settings.json"
 
 
 def getTempLocation() -> str:

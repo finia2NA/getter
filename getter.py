@@ -14,6 +14,7 @@ modes.add_argument("-c", "--core", type=str, nargs="*",
 modes.add_argument("-i", "--interactive",
                    action="store_true", help="interactive getter")
 modes.add_argument("-v", "--visual", action="store_true", help="visual getter")
+modes.add_argument("-a", "--ahk", action="store_true", help="getter hotkey mode")
 
 parser.add_argument("-d", "--dest", type=str,
                     help="determine the final output destination")
