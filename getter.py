@@ -3,6 +3,8 @@ import core
 import visual
 import interactive
 
+from functools import partial
+
 parser = argparse.ArgumentParser(
     description="A multi-workflow YouTube downloader")
 
@@ -27,8 +29,10 @@ if args.core:
   core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 if args.visual:
-  visual.main(destination=args.dest if args.dest != None
-              else core.getSettings()["destination"])
+  fun = visual.main
+  if args.dest:
+    fun = partial(fun, destination=args.dest)
+  fun()
 
 if args.interactive:
   interactive.main(format=args.format, dest=args.dest)

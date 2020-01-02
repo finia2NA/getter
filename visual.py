@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFr
 from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QComboBox, QFileDialog
 
 
-def main(destination:str=""):
+def main(destination: str = core.getSettings()["destination"]):
   app = QApplication([])
   app.setApplicationName("Getter Visual")
   app.setStyle("Fusion")  # TODO: figure out how to style universal

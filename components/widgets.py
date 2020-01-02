@@ -7,6 +7,7 @@ from components import formats as formatProvider
 
 from functools import partial
 
+
 class QuickButton(QPushButton):
   def __init__(self, descriptor, on_click=None):
     QPushButton.__init__(self, descriptor["name"])
