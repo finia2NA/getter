@@ -1,8 +1,5 @@
 import argparse
 import core
-import visual
-import interactive
-import hotkey
 
 from functools import partial
 
@@ -32,13 +29,16 @@ if args.core:
   core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 elif args.visual:
+  import visual
   fun = visual.main
   if args.dest:
     fun = partial(fun, destination=args.dest)
   fun()
 
 elif args.interactive:
+  import interactive
   interactive.main(format=args.format, dest=args.dest)
 
 elif args.hotkey:
+  import hotkey
   hotkey.main(format=args.format, destination=args.dest)
