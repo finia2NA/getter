@@ -3,4 +3,5 @@ validators
 urllib3
 youtube_dl
 ffmpeg
-ahk
+keyboard
+clipboard

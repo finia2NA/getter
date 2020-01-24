@@ -1,8 +1,5 @@
 import argparse
 import core
-import visual
-import interactive
-import autohotkey
 
 from functools import partial
 
@@ -15,7 +12,8 @@ modes.add_argument("-c", "--core", type=str, nargs="*",
 modes.add_argument("-i", "--interactive",
                    action="store_true", help="interactive getter")
 modes.add_argument("-v", "--visual", action="store_true", help="visual getter")
-modes.add_argument("-ahk", "--autohotkey", action="store_true", help="getter hotkey mode")
+modes.add_argument("-hot", "--hotkey",
+                   action="store_true", help="getter hotkey mode")
 
 parser.add_argument("-d", "--dest", type=str,
                     help="determine the final output destination")
@@ -31,13 +29,16 @@ if args.core:
   core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 elif args.visual:
+  import visual
   fun = visual.main
   if args.dest:
     fun = partial(fun, destination=args.dest)
   fun()
 
 elif args.interactive:
+  import interactive
   interactive.main(format=args.format, dest=args.dest)
 
-elif args.autohotkey:
-  autohotkey.main()
+elif args.hotkey:
+  import hotkey
+  hotkey.main(format=args.format, destination=args.dest)

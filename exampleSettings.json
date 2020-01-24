@@ -1,5 +1,7 @@
 {
   "destination": "C:/userfiles/Music/itunes/Automatically Add to iTunes",
+  "format": "wav",
+  "hotkey": "ctrl+0",
   "buttons": [
     {
       "name": "iTunes",
