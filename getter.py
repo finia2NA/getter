@@ -1,5 +1,5 @@
 import argparse
-import core
+from components import core
 
 from functools import partial
 
@@ -29,18 +29,18 @@ if args.core:
   core.main(searchString=searchString, format=args.format, dest=args.dest)
 
 elif args.visual:
-  import visual
+  from components import visual
   fun = visual.main
   if args.dest:
     fun = partial(fun, destination=args.dest)
   fun()
 
 elif args.interactive:
-  import interactive
+  from components import interactive
   interactive.main(format=args.format, dest=args.dest)
 
 elif args.hotkey:
-  import hotkey
+  from components import hotkey
   hotkey.main(format=args.format, destination=args.dest)
 
 else:

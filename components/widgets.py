@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QFr
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 from PyQt5.QtWidgets import QSizePolicy
 
-import core
+from components import core
 from components import formats as formatProvider
 
 from functools import partial

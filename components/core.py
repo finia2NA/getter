@@ -48,6 +48,7 @@ def movefiles(tempLocation: str, dest=getSettings()["destination"]) -> None:
   for f in files:
     try:
       shutil.move(source + "/" + f, dest)
+      print("[getter]", "moved file to", dest)
     except shutil.Error as e:
       print("[getter]", str(e), "\n...skipping")
 

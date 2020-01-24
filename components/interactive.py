@@ -1,4 +1,4 @@
-import core
+from components import core
 
 
 def main(format: str = None, dest: str = None):

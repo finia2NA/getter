@@ -1,6 +1,6 @@
 import keyboard
 import clipboard
-import core
+from components import core
 import time
 import random
 import string

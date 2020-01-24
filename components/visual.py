@@ -1,6 +1,6 @@
 # System
 # self
-import core
+from components import core
 from components import widgets
 from components import videolist
 
