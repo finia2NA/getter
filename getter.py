@@ -42,3 +42,6 @@ elif args.interactive:
 elif args.hotkey:
   import hotkey
   hotkey.main(format=args.format, destination=args.dest)
+
+else:
+  parser.print_help()
