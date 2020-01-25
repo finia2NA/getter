@@ -7,6 +7,7 @@ import os
 import shutil
 import tempfile
 import re
+from functools import reduce
 
 import json
 import urllib.parse
@@ -79,11 +80,7 @@ def search(searchString) -> str:
 
 
 def getArgs(argList: [str] = sys.argv[1:]) -> str:
-  args = ""
-  for word in argList:
-    args = args + word + " "
-  args = args.strip()
-  return args
+  return reduce(lambda a, b: a + b + " ", argList).strip()
 
 
 def magicSearch(toTest: str) -> None:
