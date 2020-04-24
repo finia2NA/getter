@@ -19,6 +19,8 @@ parser.add_argument("-d", "--dest", type=str,
                     help="determine the final output destination")
 parser.add_argument("-f", "--format", type=str,
                     help="determine the output format")
+parser.add_argument("--shutdown", action="store_true",
+                    help="shutdown the system after downloads are complete. only supported in core right now")
 # parser.add_argument("-s", "--spleet", type=str, nargs="*",
 #                     help="spleet the downloaded file into stems. Currently not implemented.")
 
@@ -26,7 +28,8 @@ args = parser.parse_args()
 
 if args.core:
   searchString = core.getArgs(args.core)
-  core.main(searchString=searchString, format=args.format, dest=args.dest)
+  core.main(searchString=searchString, format=args.format,
+            dest=args.dest, shutdown=args.shutdown)
 
 elif args.visual:
   from components import visual

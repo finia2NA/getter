@@ -93,7 +93,7 @@ def magicSearch(toTest: str) -> None:
     return toTest
 
 
-def main(searchString: str, format: str = None, dest: str = None):
+def main(searchString: str, format: str = None, dest: str = None, shutdown: bool = False):
   if format == None:
     format = getSettings()["format"]
   if dest == None:
@@ -102,6 +102,19 @@ def main(searchString: str, format: str = None, dest: str = None):
   print("[getter]", "searching for: \"" + searchString + "\"")
 
   downloadUrl(magicSearch(searchString), format=format, dest=dest)
+
+  if shutdown:
+    if os.name == 'nt':
+      os.system("shutdown /s /t 60")
+      print("[getter]", "SHUTTING DOWN IN 1 MINUTE. PRESS ANY KEY TO ABORT")
+      os.system("pause")
+      os.system("shutdown /a")
+
+    if os.name == 'posix':
+      os.system("shutdown +1")
+      # print("[getter]", "SHUTTING DOWN IN 1 MINUTE. PRESS ANY KEY TO ABORT")
+      os.system('read -sn 1 -p "[getter] SHUTTING DOWN IN 1 MINUTE. PRESS ANY KEY TO ABORT"')
+      os.system("shutdown -c")
 
 
 if __name__ == "__main__" and len(sys.argv) > 1:
