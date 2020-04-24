@@ -89,7 +89,7 @@ def magicSearch(toTest: str) -> None:
     print("[getter]", "resolved", '"' + toTest+'"', "to", re)
     return re
   else:
-    print("[getter]", "interpretet input as youtube url")
+    print("[getter]", "interpreted input as url")
     return toTest
 
 
