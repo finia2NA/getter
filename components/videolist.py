@@ -2,8 +2,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PyQt5.QtWidgets import QPushButton,  QLabel, QLineEdit, QComboBox, QFileDialog
 from PyQt5.QtGui import QFont
 
-from functools import reduce
-
 
 class Entry(QWidget):
   def __init__(self, returnAction=lambda: None, deleteAction=lambda: None):
