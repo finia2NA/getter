@@ -80,11 +80,7 @@ def search(searchString) -> str:
 
 
 def getArgs(argList: [str] = sys.argv[1:]) -> str:
-  print(argList)
-  reduced = reduce(lambda a, b: a + " " + b, argList).strip()
-  print(reduced)
-  quit()
-  return reduce(lambda a, b: a + b + " ", argList).strip()
+  return reduce(lambda a, b: a + " " + b, argList)
 
 
 def magicSearch(toTest: str) -> None:
