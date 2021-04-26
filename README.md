@@ -4,7 +4,7 @@ A multi-workflow YouTube downloader
 - You need to have Python 3 and PIP installed.  
 - On Windows, you need to have ffmpeg in your PATH or in the project's root directory
 ## Setup:
-1. run `pip install -r requirements.txt` in the getter folder.
+1. run `pip install -r requirements.txt`  or `pipenv install -r requirements.txt` in the getter folder.
 2. Copy `exampleSettings.json` into a new file named `settings.json` and set your desired settings.
   - You can change
     - default destination

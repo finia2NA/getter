@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+validators = "*"
+urllib3 = "*"
+ffmpeg = "*"
+keyboard = "*"
+clipboard = "*"
+PyQt5 = "*"
+youtube_dl = "*"
+
+[requires]
+python_version = "3"
