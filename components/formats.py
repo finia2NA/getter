@@ -37,7 +37,7 @@ def mp3(tempLocation: str) -> Dict: return {
 
 
 def mp4(tempLocation: str) -> Dict: return {
-    "format": "bestvideo[ext=mp4]",
+    "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]",
     "postprocessors": [
         {
             "key": "FFmpegVideoConvertor",
