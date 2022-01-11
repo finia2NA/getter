@@ -4,4 +4,6 @@ pycache/
 settings.json
 __pycache__/
 ffmpeg.exe
+ffplay.exe
+ffprobe.exe
 .idea/

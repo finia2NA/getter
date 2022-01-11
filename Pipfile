@@ -12,7 +12,7 @@ ffmpeg = "*"
 keyboard = "*"
 clipboard = "*"
 PyQt5 = "*"
-youtube_dl = "*"
+yt-dlp = "*"
 
 [requires]
 python_version = "3"

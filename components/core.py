@@ -13,7 +13,7 @@ import json
 import urllib.parse
 import urllib.request
 from validators import url as url_validate
-import youtube_dl
+import yt_dlp as youtube_dl
 
 
 def getSettings():
